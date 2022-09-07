@@ -114,7 +114,6 @@ function listarCart(lista, local){
         let produto = lista[i]
 
         let itemAdd = produtoAdd(produto)
-        console.log(itemAdd)
 
         local.appendChild(itemAdd)
     }
