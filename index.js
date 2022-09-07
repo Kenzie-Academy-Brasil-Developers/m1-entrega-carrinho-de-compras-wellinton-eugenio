@@ -24,6 +24,7 @@ const productsCart = [
         name: "Água tônica",
         price: 17.98
     },
+    
 ]
 const soma = someCart(productsCart)
 
@@ -70,7 +71,7 @@ main.classList.add('teste')
 body.appendChild(main)
 
 const titulo = document.createElement('h2')
-titulo.innerText = "Virtal Market";
+titulo.innerText = "Virtual Market";
 main.appendChild(titulo)
 
 const divA = document.createElement('div')
@@ -108,9 +109,35 @@ const button = document.createElement('button')
 button.innerText = "Finalizar Compra"
 section.appendChild(button)
 
+function listarCart(lista, local){
+    for(let i=0; i<lista.length; i++){
+        let produto = lista[i]
 
+        let itemAdd = produtoAdd(produto)
+        console.log(itemAdd)
 
+        local.appendChild(itemAdd)
+    }
+}
 
+listarCart(productsCart, list)
+
+function produtoAdd(produto){
+    let id   = produto.id;
+    let nome = produto.name;
+    let preco = produto.price
+
+    let tagLi = document.createElement('li')
+    let tagNome = document.createElement('p')
+    let tagprice = document.createElement('p')
+
+    tagNome.innerText = nome
+    tagprice.innerText = preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+
+    tagLi.append(tagNome, tagprice)
+
+    return tagLi
+}
 
 
 console.log(body)
